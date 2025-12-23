@@ -1,0 +1,63 @@
+// 1. 공통 변수와 믹스인 가져오기 (경로 중요! 점 3번)
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.header_wrap {
+  position: fixed; // 상단 고정
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgba($bg-main, 0.8); // 배경색 (변수 사용 + 투명도)
+  backdrop-filter: blur(10px); // 블러 효과 (요즘 트렌드)
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .inner {
+    // 믹스인 활용: Flex 중앙 정렬 + 양끝 배치
+    @include flex(space-between, center);
+
+    width: 100%;
+    height: 100%;
+    max-width: 1280px; // 중앙 컨텐츠 폭
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-white; // 변수 사용
+    letter-spacing: -0.5px;
+  }
+
+  // GNB 스타일
+  .gnb ul {
+    display: flex;
+    gap: 40px; // 메뉴 간 간격
+
+    a {
+      font-size: 16px;
+      font-weight: 500;
+      color: $text-sub; // 약간 흐린 색
+      transition: color 0.3s;
+
+      &:hover,
+      &.active {
+        color: $color-primary; // 포인트 컬러로 변경
+      }
+    }
+  }
+
+  // 반응형 (모바일)
+  @include mobile {
+    height: 60px; // 높이 줄이기
+
+    .inner {
+      padding: 0 16px;
+    }
+
+    // 모바일에서 GNB 숨기고 햄버거 버튼 보이게 하는 건
+    // _utils.scss의 .pc-only / .mo-only 클래스로 제어됨
+  }
+}

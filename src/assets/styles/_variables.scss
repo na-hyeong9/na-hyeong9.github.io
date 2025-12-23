@@ -1,0 +1,15 @@
+// 1. 색상 (Colors)
+$color-black: #2b2b2b;
+$color-white: #fff;
+$color-gray-100: #f5f5f5;
+$color-gray-500: #999;
+$color-primary: #3b82f6; // 포인트 컬러
+
+// 2. 폰트 (Fonts)
+$font-main: "Wanted Sans Variable", -apple-system, BlinkMacSystemFont, system-ui,
+  sans-serif;
+
+// 3. 반응형 브레이크포인트 (Breakpoints)
+$mobile: 360px;
+$tablet: 768px;
+$desktop: 1024px;

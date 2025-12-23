@@ -1,0 +1,84 @@
+// 1. 변수와 믹스인 (가장 먼저)
+@use "variables";
+@use "mixins";
+
+// 2. 리셋 (기본기)
+@use "reset";
+
+// 3. 유틸리티 (마지막에 덮어쓰기 위해)
+@use "utils";
+
+/* ===================================================
+ 2. font
+===================================================*/
+
+/* ===== font : variable =====*/
+@font-face {
+  font-family: "Wanted Sans Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  src: url("../fonts/wantedSans/WantedSansVariable.woff2")
+    format("woff2-variations");
+}
+
+/* ===== font : static =====*/
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 1000;
+  src: local("Wanted Sans ExtraBlack"),
+    url("./woff2/WantedSans-ExtraBlack.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: local("Wanted Sans Black"),
+    url("./woff2/WantedSans-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: local("Wanted Sans ExtraBold"),
+    url("./woff2/WantedSans-ExtraBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: local("Wanted Sans Bold"),
+    url("./woff2/WantedSans-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: local("Wanted Sans SemiBold"),
+    url("./woff2/WantedSans-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: local("Wanted Sans Medium"),
+    url("./woff2/WantedSans-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local("Wanted Sans Regular"),
+    url("./woff2/WantedSans-Regular.woff2") format("woff2");
+}
+
+// component
+@import url(./Header.scss);

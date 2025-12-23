@@ -1,0 +1,73 @@
+// layout
+.flex {
+  display: flex;
+  &-justify-between {
+    justify-content: space-between;
+  }
+  &-align-center {
+    align-items: center;
+  }
+  &-col {
+    flex-direction: column;
+  }
+}
+
+// text-align
+.text-center {
+  text-align: center !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+// font-weight
+.fw-thin {
+  font-weight: 300 !important;
+}
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+// 간격 자동 생성
+// .mt0 ~ .mt100 까지 4px 단위로 자동 생성됨 (mt4, mt8, mt12...)
+@for $i from 0 through 25 {
+  .mt#{$i * 4} {
+    margin-top: #{$i * 4}px;
+  }
+  .mb#{$i * 4} {
+    margin-bottom: #{$i * 4}px;
+  }
+  .pt#{$i * 4} {
+    padding-top: #{$i * 4}px;
+  }
+  .pb#{$i * 4} {
+    padding-bottom: #{$i * 4}px;
+  }
+}
+
+// 너비/높이
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+
+// PC에서만 보임 (모바일에선 숨김)
+.pc-only {
+  display: block;
+  @include mobile {
+    display: none !important;
+  }
+}
+
+// 모바일에서만 보임 (PC에선 숨김)
+.mo-only {
+  display: none;
+  @include mobile {
+    display: block !important;
+  }
+}
