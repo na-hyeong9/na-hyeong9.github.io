@@ -1,4 +1,4 @@
-import Header from "./components/layout/Header"; // 불러오기
+import Header from "./components/Header"; // 불러오기
 
 function App() {
   return (
