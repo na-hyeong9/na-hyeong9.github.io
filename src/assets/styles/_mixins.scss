@@ -1,10 +1,23 @@
-@use "variables" as *; // 변수 가져오기
+@use "./_variables.scss" as *; // 변수 가져오기
 
 // Flex 정렬 단축키
-@mixin flex($justify: center, $align: center) {
+@mixin flex($justify: null, $align: null, $direction: null) {
   display: flex;
-  justify-content: $justify;
-  align-items: $align;
+
+  // $justify 값이 null이 아닐 때만 출력
+  @if $justify != null {
+    justify-content: $justify;
+  }
+
+  // $align 값이 null이 아닐 때만 출력
+  @if $align != null {
+    align-items: $align;
+  }
+
+  // $direction 값이 null이 아닐 때만 출력
+  @if $direction != null {
+    flex-direction: $direction;
+  }
 }
 
 // 말줄임표 (...)

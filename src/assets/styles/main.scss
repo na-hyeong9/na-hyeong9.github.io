@@ -1,12 +1,13 @@
 // 1. 변수와 믹스인 (가장 먼저)
-@use "variables";
-@use "mixins";
+@use "./variables";
+@use "./mixins";
 
 // 2. 리셋 (기본기)
-@use "reset";
+@use "./reset";
+@use "./base";
 
 // 3. 유틸리티 (마지막에 덮어쓰기 위해)
-@use "utils";
+// @use "./utils";
 
 /* ===================================================
  2. font
@@ -82,3 +83,4 @@
 
 // component
 @import url(./Header.scss);
+@import url(./MainVisual.scss);

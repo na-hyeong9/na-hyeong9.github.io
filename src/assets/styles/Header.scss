@@ -1,6 +1,6 @@
 // 1. 공통 변수와 믹스인 가져오기 (경로 중요! 점 3번)
-@use "../../../assets/styles/variables" as *;
-@use "../../../assets/styles/mixins" as *;
+@use "./_variables.scss" as *;
+@use "./_mixins.scss" as *;
 
 .header_wrap {
   position: fixed; // 상단 고정
@@ -8,13 +8,12 @@
   left: 0;
   width: 100%;
   height: 80px;
-  background-color: rgba($bg-main, 0.8); // 배경색 (변수 사용 + 투명도)
+  background-color: transparent; // 배경색 (변수 사용 + 투명도)
   backdrop-filter: blur(10px); // 블러 효과 (요즘 트렌드)
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   .inner {
-    // 믹스인 활용: Flex 중앙 정렬 + 양끝 배치
     @include flex(space-between, center);
 
     width: 100%;
@@ -39,7 +38,7 @@
     a {
       font-size: 16px;
       font-weight: 500;
-      color: $text-sub; // 약간 흐린 색
+      color: $color-white;
       transition: color 0.3s;
 
       &:hover,

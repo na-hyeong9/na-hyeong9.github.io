@@ -1,5 +1,4 @@
 import React from "react";
-import "../assets/styles/Header"; // 1. 내 짝꿍 스타일 파일 연결
 
 const Header = () => {
   return (

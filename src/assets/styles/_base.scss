@@ -1,4 +1,7 @@
-@use "./mixins" as *;
+@use "./_mixins.scss" as *;
+#root {
+  width: 100%;
+}
 
 .title {
   font-size: 50px;

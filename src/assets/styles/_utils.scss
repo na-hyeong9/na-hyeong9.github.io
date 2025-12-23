@@ -1,16 +1,4 @@
-// layout
-.flex {
-  display: flex;
-  &-justify-between {
-    justify-content: space-between;
-  }
-  &-align-center {
-    align-items: center;
-  }
-  &-col {
-    flex-direction: column;
-  }
-}
+@use "_mixins" as *;
 
 // text-align
 .text-center {
