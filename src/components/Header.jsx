@@ -1,8 +1,25 @@
 import React from "react";
 
 const Header = () => {
+  const handleScrollTo = (e, targetId) => {
+    e.preventDefault();
+
+    let targetContent = document.querySelector(targetId);
+    let headerHeight = 80;
+
+    if (targetContent) {
+      let offsetTop =
+        targetContent.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: offsetTop - headerHeight,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <header className="header_wrap">
+    <header className="header-wrap">
       <div className="inner">
         {/* 로고 영역 */}
         <h1 className="logo">
@@ -11,17 +28,24 @@ const Header = () => {
 
         {/* 네비게이션 (GNB) */}
         <nav className="gnb pc-only">
-          {" "}
-          {/* 모바일 구현 전이라 일단 pc-only 클래스 붙임 */}
           <ul>
             <li>
-              <a href="#about">About Me</a>
+              <a href="#about" onClick={(e) => handleScrollTo(e, "#about")}>
+                About Me
+              </a>
             </li>
             <li>
-              <a href="#projects">Projects</a>
+              <a
+                href="#projects"
+                onClick={(e) => handleScrollTo(e, "#projects")}
+              >
+                Projects
+              </a>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <a href="#contact" onClick={(e) => handleScrollTo(e, "#contact")}>
+                Contact
+              </a>
             </li>
           </ul>
         </nav>

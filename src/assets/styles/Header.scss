@@ -2,7 +2,7 @@
 @use "./_variables.scss" as *;
 @use "./_mixins.scss" as *;
 
-.header_wrap {
+.header-wrap {
   position: fixed; // 상단 고정
   top: 0;
   left: 0;
@@ -55,8 +55,5 @@
     .inner {
       padding: 0 16px;
     }
-
-    // 모바일에서 GNB 숨기고 햄버거 버튼 보이게 하는 건
-    // _utils.scss의 .pc-only / .mo-only 클래스로 제어됨
   }
 }

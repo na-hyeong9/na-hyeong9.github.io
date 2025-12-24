@@ -7,7 +7,7 @@
 @use "./base";
 
 // 3. 유틸리티 (마지막에 덮어쓰기 위해)
-// @use "./utils";
+@use "./utils";
 
 /* ===================================================
  2. font
@@ -84,3 +84,4 @@
 // component
 @import url(./Header.scss);
 @import url(./MainVisual.scss);
+@import url(./About.scss);
