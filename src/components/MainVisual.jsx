@@ -19,13 +19,16 @@ const MainVisual = () => {
         ease: "power3.out",
       });
 
+      let mainScrollVh = window.innerHeight;
+
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: container.current,
           start: "top top",
-          end: "+=2000",
+          end: `+=${mainScrollVh * 0.5}`,
           scrub: 1,
           pin: true,
+          pinSpacing: false,
         },
       });
 

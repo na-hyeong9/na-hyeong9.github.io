@@ -5,8 +5,8 @@
   width: 100%;
   min-height: 100vh;
   padding: 80px 0;
-  background-color: transparent; // About보다 조금 더 어두운 블랙으로 대비
   color: #fff;
+  z-index: 10;
 
   .inner {
     width: 100%;

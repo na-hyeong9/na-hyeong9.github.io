@@ -5,12 +5,8 @@
   width: 100%;
   min-height: 100vh;
   padding: $header-height 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(10, 10, 10, 1) 100%
-  );
   color: #fff;
+  z-index: 10;
 
   .inner {
     width: 100%;

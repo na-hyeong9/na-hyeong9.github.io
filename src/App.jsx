@@ -9,7 +9,7 @@ function App() {
     <div className="wrap">
       <Header />
 
-      <main>
+      <main className="main">
         <MainVisual />
         <About />
         <ProjectList />
