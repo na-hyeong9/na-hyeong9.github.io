@@ -23,21 +23,15 @@ const Contact = () => {
 
           <div className="social-links">
             <a
-              href="https://github.com/yourid"
+              href="https://github.com/na-hyeong9"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
             </a>
+
             <a
-              href="https://velog.io/@yourid"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Blog
-            </a>
-            <a
-              href="https://linkedin.com/in/yourid"
+              href="https://www.linkedin.com/in/%EB%82%98%ED%98%95-%EA%B9%80-08b8aa36b/?trk=opento_sprofile_topcard"
               target="_blank"
               rel="noopener noreferrer"
             >
