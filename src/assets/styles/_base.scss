@@ -15,3 +15,75 @@
     font-size: 30px;
   }
 }
+
+/* ===================================================
+ 2. font
+===================================================*/
+
+/* ===== font : variable =====*/
+@font-face {
+  font-family: "Wanted Sans Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  src: url("../fonts/wantedSans/WantedSansVariable.woff2")
+    format("woff2-variations");
+}
+
+/* ===== font : static =====*/
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 1000;
+  src: local("Wanted Sans ExtraBlack"),
+    url("../fonts/wantedSans/WantedSans-ExtraBlack.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: local("Wanted Sans Black"),
+    url("../fonts/wantedSans/WantedSans-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: local("Wanted Sans ExtraBold"),
+    url("../fonts/wantedSans/WantedSans-ExtraBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: local("Wanted Sans Bold"),
+    url("../fonts/wantedSans/WantedSans-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: local("Wanted Sans SemiBold"),
+    url("../fonts/wantedSans/WantedSans-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: local("Wanted Sans Medium"),
+    url("../fonts/wantedSans/WantedSans-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Wanted Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local("Wanted Sans Regular"),
+    url("../fonts/wantedSans/WantedSans-Regular.woff2") format("woff2");
+}
