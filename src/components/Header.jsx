@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Header = () => {
-  const handleScrollTo = (e, targetId) => {
+  let [isOpen, setIsOpen] = useState(false);
+
+  // 스무스 스크롤 핸들러
+  let handleScrollTo = (e, targetId) => {
     e.preventDefault();
 
     let targetContent = document.querySelector(targetId);
-    let headerHeight = 80;
 
     if (targetContent) {
       let offsetTop =
         targetContent.getBoundingClientRect().top + window.scrollY;
 
       window.scrollTo({
-        top: offsetTop - headerHeight,
+        top: offsetTop,
         behavior: "smooth",
       });
+
+      setIsOpen(false); // 모바일 메뉴 닫기
     }
   };
 
@@ -26,7 +30,7 @@ const Header = () => {
           <a href="/">NA HYEONG</a>
         </h1>
 
-        {/* 네비게이션 (GNB) */}
+        {/* PC 네비게이션 */}
         <nav className="gnb pc-only">
           <ul>
             <li>
@@ -50,11 +54,40 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* 모바일 메뉴 버튼 (모양만 잡아둠) */}
-        <button className="btn-menu mo-only">
+        {/* 모바일 메뉴 버튼 */}
+        <button className="btn-menu mo-only" onClick={() => setIsOpen(true)}>
           <span>메뉴</span>
         </button>
       </div>
+
+      {/* 모바일 사이드바 */}
+      <div className={`side-bar mo-only ${isOpen ? "open" : ""}`}>
+        {/* 닫기 버튼 */}
+        <button className="btn-close" onClick={() => setIsOpen(false)}>
+          ✕
+        </button>
+
+        <ul>
+          <li>
+            <a href="#about" onClick={(e) => handleScrollTo(e, "#about")}>
+              About Me
+            </a>
+          </li>
+          <li>
+            <a href="#projects" onClick={(e) => handleScrollTo(e, "#projects")}>
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={(e) => handleScrollTo(e, "#contact")}>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* 배경 딤 (모바일 메뉴 열렸을 때 뒤에 깔리는 배경) */}
+      {isOpen && <div className="dim" onClick={() => setIsOpen(false)} />}
     </header>
   );
 };

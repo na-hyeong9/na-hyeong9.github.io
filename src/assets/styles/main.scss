@@ -4,7 +4,7 @@
 
 // 2. 리셋 (기본기)
 @use "./reset";
-@use "./base";
+@use "./_base.scss";
 
 // 3. 유틸리티 (마지막에 덮어쓰기 위해)
 @use "./utils";
@@ -85,3 +85,5 @@
 @import url(./Header.scss);
 @import url(./MainVisual.scss);
 @import url(./About.scss);
+@import url(./ProjectList.scss);
+@import url(./Contact.scss);

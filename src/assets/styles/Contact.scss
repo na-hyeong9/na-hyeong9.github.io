@@ -1,0 +1,143 @@
+@use "./mixins" as *; // 기존 믹스인 활용
+
+.contact-wrap {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #050505; // 완전 블랙에 가까운 색
+  color: #fff;
+  padding: 100px 0 80px; // 상단 여백, 하단 여백
+
+  // 내용 중앙 정렬
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .inner {
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // 컨텐츠와 푸터 사이 벌리기
+    height: 80vh; // 내부 높이 설정
+  }
+
+  .contact-content {
+    flex: 1; // 남은 공간 차지
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .main-message {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 40px;
+
+    .highlight {
+      background: linear-gradient(to right, #4ecdc4, #44a8d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .sub-message {
+    font-size: 20px;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 60px;
+  }
+
+  .email-link {
+    font-size: 60px;
+    font-weight: 300; // 얇은 폰트로 세련되게
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 80px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    .arrow {
+      font-size: 40px;
+      margin-left: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: #44a8d8; // 포인트 컬러
+      border-color: #44a8d8;
+
+      .arrow {
+        transform: translate(10px, -10px); // 대각선 위로 이동
+      }
+    }
+  }
+
+  .social-links {
+    display: flex;
+    gap: 30px;
+
+    a {
+      font-size: 18px;
+      font-weight: 500;
+      color: #aaa;
+      position: relative;
+      transition: color 0.3s;
+
+      // 밑줄 애니메이션 효과
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #fff;
+        transition: width 0.3s;
+      }
+
+      &:hover {
+        color: #fff;
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+
+    p {
+      font-size: 14px;
+      color: #555;
+    }
+  }
+
+  // --- 모바일 반응형 ---
+  @media (max-width: 768px) {
+    .main-message {
+      font-size: 40px;
+    }
+
+    .email-link {
+      font-size: 20px;
+      .arrow {
+        font-size: 20px;
+      }
+    }
+
+    .sub-message {
+      font-size: 16px;
+    }
+  }
+}

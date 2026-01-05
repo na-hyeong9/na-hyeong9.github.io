@@ -5,6 +5,10 @@ import App from "./App.jsx";
 import "./index.css";
 import "./assets/styles/main.scss";
 
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App />

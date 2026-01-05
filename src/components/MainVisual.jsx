@@ -6,38 +6,34 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const MainVisual = () => {
-  const container = useRef();
-  const textWrap = useRef();
-
-  // ✅ 페이지 로드 시 무조건 최상단
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  let container = useRef();
+  let textWrap = useRef();
 
   useGSAP(
     () => {
-      const vh = window.innerHeight;
-      const scrollDistance = vh * 2; // 2배 스크롤 (조정 가능: 2, 2.5, 3)
+      gsap.from(".text-wrap h2", {
+        y: 50,
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.3,
+        ease: "power3.out",
+      });
 
-      gsap.fromTo(
-        textWrap.current,
-        {
-          scale: 0.5,
-          opacity: 1,
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "+=1000",
+          scrub: 1,
+          pin: true,
         },
-        {
-          scrollTrigger: {
-            trigger: container.current,
-            start: "top top",
-            end: `+=${scrollDistance}`,
-            scrub: 1,
-            pin: true,
-          },
-          scale: 1.5,
-          opacity: 0,
-          ease: "power2.inOut",
-        }
-      );
+      });
+
+      tl.to(textWrap.current, {
+        scale: 2,
+        opacity: 0,
+        ease: "power2.in",
+      });
     },
     { scope: container }
   );

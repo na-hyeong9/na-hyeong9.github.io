@@ -1,7 +1,7 @@
 @use "./_variables.scss" as *; // 변수 가져오기
 
 // Flex 정렬 단축키
-@mixin flex($justify: null, $align: null, $direction: null) {
+@mixin flex($direction: null, $justify: null, $align: null) {
   display: flex;
 
   // $justify 값이 null이 아닐 때만 출력

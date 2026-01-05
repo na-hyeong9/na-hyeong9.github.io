@@ -7,14 +7,16 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
-  background-color: transparent; // 배경색 (변수 사용 + 투명도)
-  backdrop-filter: blur(10px); // 블러 효과 (요즘 트렌드)
+  height: $header-height;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   .inner {
-    @include flex(space-between, center);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     width: 100%;
     height: 100%;
@@ -55,5 +57,36 @@
     .inner {
       padding: 0 16px;
     }
+  }
+
+  .side-bar {
+    position: absolute;
+    width: 80%;
+    height: 100vh;
+
+    top: 0;
+    right: -100%;
+    transition: all 0.5s ease;
+
+    background-color: #fff;
+
+    padding: 20px;
+
+    z-index: 2000;
+
+    &.open {
+      right: 0;
+    }
+  }
+
+  .dim {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 1500;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
