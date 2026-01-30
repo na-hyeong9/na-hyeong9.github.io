@@ -19,23 +19,22 @@ const About = () => {
   useGSAP(
     () => {
       // 1. 왼쪽 텍스트 그룹 애니메이션 (제목 -> 설명 순서)
-      gsap.from(".left-col .section-title, .left-col .sub-desc", {
+      gsap.from(".left-col .section-title, .left-col .sub-desc ", {
         scrollTrigger: {
-          trigger: ".left-col",
-          start: "top 75%",
+          trigger: "left-col",
+          start: "top top",
           toggleActions: "play none none reverse",
         },
         y: 50,
         opacity: 0,
         duration: 1.5,
-        ease: "power3.out",
+        ease: "power3.inout",
         stagger: 0.3,
       });
-
       // 2. 오른쪽 스킬바 애니메이션
       gsap.to(".progress-bar", {
         scrollTrigger: {
-          trigger: ".right-col", // 트리거를 오른쪽 컬럼으로 잡는 게 더 정확할 수 있습니다.
+          trigger: ".right-col",
           start: "top 85%",
           toggleActions: "play none none reverse",
         },

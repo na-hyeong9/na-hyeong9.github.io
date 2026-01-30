@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectList = () => {
-  const containerRef = useRef(); // scope 설정을 위한 ref
+  const ProjectListRef = useRef(); // scope 설정을 위한 ref
 
   useGSAP(
     () => {
@@ -33,11 +33,11 @@ const ProjectList = () => {
         },
         y: 100,
         opacity: 0,
-        duration: 1,
+        duration: 1.5,
         ease: "power3.out",
       });
     },
-    { scope: containerRef }, // scope 설정 (안전하게)
+    { scope: ProjectListRef }, // scope 설정 (안전하게)
   );
 
   let projects = [
@@ -59,7 +59,7 @@ const ProjectList = () => {
   ];
 
   return (
-    <section className="project-wrap" id="projects" ref={containerRef}>
+    <section className="project-wrap" id="projects" ref={ProjectListRef}>
       <div className="inner">
         <div className="section-head">
           <h2 className="section-title">Selected Works</h2>
