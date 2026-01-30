@@ -8,6 +8,11 @@
   color: #fff;
   z-index: 10;
 
+  // 내용 중앙 정렬
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   .inner {
     width: 100%;
     max-width: 1280px;
