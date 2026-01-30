@@ -1,8 +1,8 @@
 import Header from "./components/Header";
-import MainVisual from "./components/MainVisual";
-import About from "./components/About";
-import ProjectList from "./components/ProjectList";
-import Contact from "./components/contact";
+import MainVisual from "./pages/MainVisual";
+import About from "./pages/About";
+import ProjectList from "./pages/ProjectList";
+import Contact from "./pages/contact";
 
 function App() {
   return (

@@ -1,7 +1,46 @@
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ProjectList = () => {
-  const projects = [
+  const containerRef = useRef(); // scope 설정을 위한 ref
+
+  useGSAP(
+    () => {
+      // 1. 헤더 텍스트 애니메이션
+      gsap.from(".section-head .section-title, .section-head .sub-desc", {
+        scrollTrigger: {
+          trigger: ".section-head",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        stagger: 0.3,
+      });
+
+      // 2. 프로젝트 카드 리스트 애니메이션
+      gsap.from(".project-item", {
+        scrollTrigger: {
+          trigger: ".grid-container", // 그리드 컨테이너가 보이면 시작
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+    },
+    { scope: containerRef }, // scope 설정 (안전하게)
+  );
+
+  let projects = [
     {
       id: 1,
       title: "Portfolio Website",
@@ -20,10 +59,11 @@ const ProjectList = () => {
   ];
 
   return (
-    <section className="project-wrap" id="projects">
+    <section className="project-wrap" id="projects" ref={containerRef}>
       <div className="inner">
         <div className="section-head">
           <h2 className="section-title">Selected Works</h2>
+
           <p className="sub-desc">
             디테일과 사용자 경험을 중시하는 결과물입니다.
           </p>

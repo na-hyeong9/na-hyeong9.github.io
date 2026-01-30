@@ -8,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
   const aboutRef = useRef();
 
-  // 스킬 데이터
   const skills = [
     { name: "HTML5 / CSS3", level: "95%" },
     { name: "JavaScript", level: "80%" },
@@ -19,25 +18,40 @@ const About = () => {
 
   useGSAP(
     () => {
-      // 모든 progress-bar를 찾아서 애니메이션 적용
-      gsap.to(".progress-bar", {
+      // 1. 왼쪽 텍스트 그룹 애니메이션 (제목 -> 설명 순서)
+      gsap.from(".left-col .section-title, .left-col .sub-desc", {
         scrollTrigger: {
-          trigger: aboutRef.current,
-          start: "top 90%", // 섹션이 화면 70% 지점에 올 때 시작
+          trigger: ".left-col",
+          start: "top 75%",
           toggleActions: "play none none reverse",
         },
-        width: (i, target) => target.dataset.level, // 데이터셋에서 퍼센트 가져옴
+        y: 50,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        stagger: 0.3,
+      });
+
+      // 2. 오른쪽 스킬바 애니메이션
+      gsap.to(".progress-bar", {
+        scrollTrigger: {
+          trigger: ".right-col", // 트리거를 오른쪽 컬럼으로 잡는 게 더 정확할 수 있습니다.
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        width: (i, target) => target.dataset.level,
         duration: 1.5,
         ease: "power2.out",
-        stagger: 0.2, // 순차적으로 실행
+        stagger: 0.2,
       });
     },
-    { scope: aboutRef }
+    { scope: aboutRef }, // ref 범위 설정
   );
 
   return (
     <section className="about-wrap" id="about" ref={aboutRef}>
       <div className="inner">
+        {/* 왼쪽 영역 */}
         <div className="left-col">
           <h2 className="section-title">
             Design with
@@ -51,6 +65,7 @@ const About = () => {
           </p>
         </div>
 
+        {/* 오른쪽 영역 */}
         <div className="right-col">
           <p className="bio-text">
             사용자 경험을 최우선으로 생각하며, 유지보수가 용이하고
@@ -68,8 +83,8 @@ const About = () => {
                 <div className="bar-bg">
                   <div
                     className="progress-bar"
-                    data-level={skill.level} // GSAP이 읽을 퍼센트 값
-                    style={{ width: "0%" }} // 초기값 0
+                    data-level={skill.level}
+                    style={{ width: "0%" }}
                   ></div>
                 </div>
               </div>

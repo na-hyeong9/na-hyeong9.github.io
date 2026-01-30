@@ -1,23 +1,39 @@
 @use "./_variables.scss" as *; // 변수 가져오기
 
-// Flex 정렬 단축키
-@mixin flex($direction: null, $justify: null, $align: null) {
+@mixin flex($justify: null, $align: null, $direction: null) {
   display: flex;
 
-  // $justify 값이 null이 아닐 때만 출력
+  // 값이 있을 때만 코드를 생성함 (CSS 용량 최적화)
   @if $justify != null {
     justify-content: $justify;
   }
 
-  // $align 값이 null이 아닐 때만 출력
   @if $align != null {
     align-items: $align;
   }
 
-  // $direction 값이 null이 아닐 때만 출력
   @if $direction != null {
     flex-direction: $direction;
   }
+}
+
+/* 수직 중앙 정렬만 필요할 때 */
+@mixin flex-align {
+  display: flex;
+  align-items: center;
+}
+
+/* 정중앙 정렬 */
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 양옆으로 벌릴 때 */
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 // 말줄임표 (...)
