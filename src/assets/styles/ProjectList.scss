@@ -42,77 +42,11 @@
 
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); // 2열 배치
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-  }
 
-  .project-item {
-    cursor: pointer;
-
-    .img-box {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      background-color: #222;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 25px;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-      }
-
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s;
-
-        .view-btn {
-          padding: 12px 24px;
-          border: 1px solid #fff;
-          border-radius: 30px;
-          font-size: 14px;
-        }
-      }
-    }
-
-    &:hover {
-      .img-box img {
-        transform: scale(1.05);
-      }
-      .overlay {
-        opacity: 1;
-      }
-    }
-
-    .text-box {
-      .category {
-        font-size: 14px;
-        color: $color-primary; // variables에 설정된 포인트 컬러
-        margin-bottom: 8px;
-        display: block;
-      }
-      .item-title {
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 12px;
-      }
-      .item-desc {
-        font-size: 16px;
-        color: #888;
-        line-height: 1.6;
-      }
+    @include mobile {
+      grid-template-columns: 1fr; // 모바일은 1줄에 1개
     }
   }
 
@@ -124,6 +58,216 @@
     }
     .section-head .section-title {
       font-size: 32px;
+    }
+  }
+
+  // 네온사인 효과
+  @keyframes glowing {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .project-card {
+    position: relative;
+    padding: 20px;
+    z-index: 1;
+    background: #2c3e50;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    overflow: visible;
+    border: 1px solid rgba(#4ecdc4, 0.1);
+
+    .no-img-placeholder {
+      @include flex(center, center);
+      height: 100%;
+      overflow: hidden;
+
+      .no-img {
+        object-fit: cover;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #4ecdc4, #44a8d8, #2c3e50);
+      background-size: 200% auto;
+      z-index: -1;
+      filter: blur(4px);
+      border-radius: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: inherit;
+      z-index: -1;
+      filter: blur(20px);
+      border-radius: 18px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover {
+      transform: translateY(-10px) !important;
+
+      // 호버 시 네온 켜기
+      &::before,
+      &::after {
+        opacity: 1;
+        animation: glowing 20s linear infinite;
+      }
+    }
+
+    .main-img-box {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+      background-color: #eee;
+
+      .main-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        .view-btn {
+          padding: 10px 24px;
+          background-color: #fff;
+          color: #333;
+          font-weight: 600;
+          border-radius: 30px;
+          text-decoration: none;
+          font-size: 14px;
+          transform: translateY(20px);
+          transition: transform 0.3s ease;
+          cursor: pointer;
+        }
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+
+        .overlay {
+          opacity: 1;
+          .view-btn {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+
+    .thumb-row {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+
+      // 스크롤바 스타일링
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 2px;
+      }
+
+      .thumb-btn {
+        flex: 0 0 calc((100% - 30px) / 4);
+        height: 70px; // 요청하신 높이
+        border-radius: 8px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        cursor: pointer;
+        padding: 0;
+        opacity: 0.5;
+        transition: all 0.3s;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        // 현재 선택된 썸네일 강조
+        &.active {
+          opacity: 1;
+          border-color: #000;
+        }
+      }
+    }
+
+    // 3. 텍스트 정보
+    .text-box {
+      .category {
+        display: inline-block;
+        font-size: 13px;
+        color: #666;
+        background: #f0f0f0;
+        padding: 4px 8px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+      .title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #fff;
+      }
+      .desc {
+        font-size: 15px;
+        color: #eee;
+        line-height: 1.5;
+      }
+      .link {
+        cursor: pointer;
+      }
     }
   }
 }
