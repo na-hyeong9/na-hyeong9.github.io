@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { createPortal } from "react-dom"; // ★ 팝업을 겹침 없이 최상단에 띄우기 위해 추가
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,9 +15,12 @@ interface Project {
   link?: string;
 }
 
-// 개별 카드 컴포넌트 (기존과 동일)
+// 개별 카드 컴포넌트
 const ProjectItem = ({ data }: { data: Project }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태
+
+  const thumbRowRef = useRef<HTMLDivElement>(null);
 
   // 이미지 유무 확인
   const hasImages = data.images && data.images.length > 0;
@@ -26,66 +30,117 @@ const ProjectItem = ({ data }: { data: Project }) => {
     e.currentTarget.src = "/images/error.jpg";
   };
 
+  // 모달이 열렸을 때 배경 스크롤 방지
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isModalOpen]);
+
+  useEffect(() => {
+    const thumbElement = thumbRowRef.current;
+    if (!thumbElement) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        thumbElement.scrollLeft += e.deltaY;
+      }
+    };
+
+    thumbElement.addEventListener("wheel", handleWheel, { passive: false });
+
+    // 클린업 함수
+    return () => {
+      thumbElement.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
   return (
-    <div className="project-card">
-      <div className="main-img-box">
-        {hasImages ? (
-          // 이미지가 있을 때
-          <>
-            <img
-              className="main-img"
-              src={data.images[currentIndex]}
-              alt={data.title}
-              onError={handleImgError}
-            />
-            <div className="overlay">
-              {data.link ? (
-                <a
-                  href={data.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="view-btn">
-                  Visit Site ↗
-                </a>
-              ) : (
-                <span className="view-btn" style={{ cursor: "default" }}>
-                  Internal Project
-                </span>
-              )}
+    <>
+      <div className="project-card">
+        <div className="main-img-box">
+          {hasImages ? (
+            <>
+              <img
+                className="main-img"
+                src={data.images[currentIndex]}
+                alt={data.title}
+                onError={handleImgError}
+              />
+              <div className="overlay">
+                {/* 이미지 모달 버튼 */}
+                <button
+                  className="view-img-btn"
+                  onClick={() => setIsModalOpen(true)}>
+                  크게 보기
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="no-img-placeholder">
+              <img
+                className="no-img"
+                src="/images/no-image.png"
+                alt="이미지 없음"
+              />
             </div>
-          </>
-        ) : (
-          // 이미지가 없을 때
-          <div className="no-img-placeholder">
-            <img
-              className="no-img"
-              src="/images/no-image.png"
-              alt="이미지 없음"
-            />
-          </div>
+          )}
+        </div>
+
+        {/* 썸네일 리스트 */}
+        <div className="thumb-row" ref={thumbRowRef}>
+          {data.images.map((img, idx) => (
+            <button
+              key={idx}
+              className={`thumb-btn ${currentIndex === idx ? "active" : ""}`}
+              onClick={() => setCurrentIndex(idx)}>
+              <img src={img} alt={`thumb-${idx}`} onError={handleImgError} />
+            </button>
+          ))}
+        </div>
+
+        {/* 텍스트 정보 */}
+        <div className="text-box">
+          <span className="category">{data.category}</span>
+          <h3 className="title">{data.title}</h3>
+          <p className="desc" style={{ whiteSpace: "pre-line" }}>
+            {data.desc}
+          </p>
+        </div>
+      </div>
+
+      {/* 팝업(모달) 영역 - createPortal을 사용하여 body 바로 아래에 렌더링 */}
+      {isModalOpen &&
+        createPortal(
+          <div
+            className="img-modal-backdrop"
+            onClick={() => setIsModalOpen(false)}>
+            {/* 내부 콘텐츠 클릭 시에는 팝업이 닫히지 않도록 stopPropagation */}
+            <div
+              className="img-modal-content"
+              onClick={(e) => e.stopPropagation()}>
+              <img
+                src={data.images[currentIndex]}
+                alt={`${data.title} 원본 이미지`}
+              />
+            </div>
+
+            {/* 닫기 버튼 (우측 상단 고정) */}
+            <button
+              className="modal-close-btn"
+              onClick={() => setIsModalOpen(false)}>
+              ✕
+            </button>
+          </div>,
+          document.body,
         )}
-      </div>
-
-      <div className="thumb-row">
-        {data.images.map((img, idx) => (
-          <button
-            key={idx}
-            className={`thumb-btn ${currentIndex === idx ? "active" : ""}`}
-            onClick={() => setCurrentIndex(idx)}>
-            <img src={img} alt={`thumb-${idx}`} onError={handleImgError} />
-          </button>
-        ))}
-      </div>
-
-      <div className="text-box">
-        <span className="category">{data.category}</span>
-        <h3 className="title">{data.title}</h3>
-        {/* 줄바꿈이 있는 설명을 위해 css white-space 적용 필요 */}
-        <p className="desc" style={{ whiteSpace: "pre-line" }}>
-          {data.desc}
-        </p>
-      </div>
-    </div>
+    </>
   );
 };
 
@@ -98,28 +153,49 @@ export default function ProjectList() {
       title: "건설사 원전 사업관리 시스템",
       category: "2025.04 ~ 06 / HTML, CSS, JS",
       desc: "• IBSheet·IBChart 기반 대용량 그리드·차트 UI 구현\n• GitHub 버전 관리 체계 전담 구축 및 퍼블리싱 환경 세팅",
-      images: [],
+      images: [
+        "/images/pj01/nova-01.png",
+        "/images/pj01/nova-02.png",
+        "/images/pj01/nova-03.png",
+        "/images/pj01/nova-04.png",
+      ],
     },
     {
       id: 2,
       title: "공공기관 클라우드 네이티브 시스템",
       category: "2025.03 ~ 04 / React",
       desc: "• 공통 UI 컴포넌트 15종 설계 및 구현\n• 컴포넌트 재사용 구조 적용 (재사용률 약 70% 달성)",
-      images: [],
+      images: [
+        "/images/pj02/uj-01.png",
+        "/images/pj02/uj-02.png",
+        "/images/pj02/uj-03.png",
+        "/images/pj02/uj-04.png",
+      ],
     },
     {
       id: 3,
       title: "건설사 고객센터 시스템",
       category: "2024.07 ~ 12 / Vue.js, SCSS",
       desc: "• UI 컴포넌트 모듈화로 개발 기간 20% 단축\n• SCSS/SASS 기반 스타일 가이드 수립 및 대시보드 구현",
-      images: [],
+      images: [
+        "/images/pj03/hicc-01.png",
+        "/images/pj03/hicc-02.png",
+        "/images/pj03/hicc-03.png",
+        "/images/pj03/hicc-04.png",
+      ],
     },
     {
       id: 4,
       title: "공기업 통합경영정보시스템(K-ERP)",
       category: "2024.05 ~ 06 / jQuery",
       desc: "• 적응형 모바일 페이지 퍼블리싱 전담 (100%)\n• 기존 시스템 분석 및 신규 기능 UI 적용",
-      images: [],
+      images: [
+        "/images/pj04/kbiz-01.png",
+        "/images/pj04/kbiz-02.png",
+        "/images/pj04/kbiz-03.png",
+        "/images/pj04/kbiz-04.png",
+        "/images/pj04/kbiz-05.png",
+      ],
     },
     {
       id: 5,
@@ -140,13 +216,19 @@ export default function ProjectList() {
       title: "공기업 대고객 시스템 개편",
       category: "2023.06 ~ 09 / HTML, CSS, jQuery",
       desc: "• 총 117페이지 화면 퍼블리싱 및 유지보수\n• 적응형 모바일 페이지 구현 전담 (100%)",
-      images: [],
+      images: [
+        "/images/pj07/kbiz-01.png",
+        "/images/pj07/kbiz-02.png",
+        "/images/pj07/kbiz-03.png",
+        "/images/pj07/kbiz-04.png",
+        "/images/pj07/kbiz-05.png",
+        "/images/pj07/kbiz-06.png",
+      ],
     },
   ];
 
   useGSAP(
     () => {
-      // 헤더 애니메이션
       gsap.from(".section-head", {
         scrollTrigger: { trigger: ".section-head", start: "top 80%" },
         y: 50,

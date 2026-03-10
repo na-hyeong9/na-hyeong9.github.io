@@ -11,13 +11,13 @@ export default function Contact() {
           </h2>
 
           <p className="sub-message">
-            새로운 프로젝트나 협업 제안은 언제나 환영입니다.
+            감사합니다.
             <br />
-            아래 메일로 편하게 연락주세요.
+            궁금한 점이 있으시면 아래 메일로 편하게 연락주세요.
           </p>
 
-          <a href="mailto:developerkimna@gmail.com" className="email-link">
-            developerkimna@gmail.com
+          <a href="mailto:devkimna@gmail.com" className="email-link">
+            devkimna@gmail.com
             <span className="arrow">↗</span>
           </a>
 

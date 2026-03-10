@@ -65,9 +65,13 @@ export default function About() {
             Efficiency
           </h2>
           <p className="sub-desc">
+            안녕하세요,
+            <br />
             끊임없이 변화하는 웹 환경에서
             <br />
-            최적의 퍼블리싱 솔루션을 찾습니다.
+            <span>
+              최적의 <b>퍼블리싱 솔루션을 찾는 김나형</b> 입니다.
+            </span>
           </p>
         </div>
 

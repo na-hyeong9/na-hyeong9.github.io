@@ -148,8 +148,7 @@
 
       .main-img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         transition: transform 0.5s;
       }
 
@@ -224,6 +223,7 @@
         padding: 0;
         opacity: 0.5;
         transition: all 0.3s;
+        background-color: #eee;
 
         img {
           width: 100%;
@@ -268,6 +268,82 @@
       .link {
         cursor: pointer;
       }
+    }
+  }
+}
+
+// 모달
+.overlay {
+  .view-img-btn {
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2); // 반투명 배경
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
+.img-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); // 어두운 배경
+  z-index: 9999; // 최상단 노출
+
+  // 넘치는 이미지 처리를 위한 핵심 설정
+  overflow-y: auto;
+  display: flex;
+  padding: 60px 20px; // 상하 스크롤 시 여백 확보
+
+  // 커스텀 스크롤바
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+  }
+
+  .img-modal-content {
+    margin: auto; // 화면 중앙 정렬
+    width: 100%;
+    max-width: 1400px;
+    height: auto;
+
+    img {
+      width: auto;
+      display: block;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .modal-close-btn {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 24px;
+    color: #fff;
+    background: transparent;
+    padding: 4px 8px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.7;
     }
   }
 }
