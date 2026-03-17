@@ -1,9 +1,11 @@
-@use "./mixins" as *; // 기존 믹스인 활용
+@use "./mixins" as *;
+@use "./variables" as *;
 
 .contact-wrap {
   width: 100%;
   color: #fff;
-  padding: 100px 0 80px; // 상단 여백, 하단 여백
+  padding: 100px 0 80px;
+  background-color: $bg-dark;
 
   // 내용 중앙 정렬
   display: flex;

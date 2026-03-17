@@ -49,14 +49,14 @@
   // --- 오른쪽 영역 ---
   .right-col {
     width: 50%;
-    padding-top: 20px; // 시각적 균형을 위해 살짝 내림
+    padding-top: 20px;
 
     .bio-text {
       font-size: 18px;
       line-height: 1.8;
       color: #bbb;
       margin-bottom: 50px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2); // 구분선
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
       padding-top: 30px;
     }
 
@@ -82,7 +82,7 @@
         .progress-bar {
           width: 0%;
           height: 100%;
-          background-color: $color-primary;
+          background-color: #44a8d8;
           border-radius: 5px;
         }
       }

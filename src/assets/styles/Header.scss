@@ -13,6 +13,10 @@
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
+  .logo {
+    height: 1;
+  }
+
   .inner {
     display: flex;
     justify-content: space-between;
@@ -33,23 +37,40 @@
   }
 
   // GNB 스타일
-  .gnb ul {
-    display: flex;
-    gap: 40px; // 메뉴 간 간격
+  .gnb {
+    position: relative;
 
-    a {
-      font-size: 16px;
-      font-weight: 500;
-      color: $color-white;
-      transition: color 0.3s;
+    // 활성화된 탭
+    .slide-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background-color: #4ecdc4;
+      transition: all 0.3s ease;
 
-      &:hover,
-      &.active {
-        color: $color-primary; // 포인트 컬러로 변경
+      // 처음 투명하게
+      width: 0;
+      opacity: 0;
+    }
+
+    ul {
+      display: flex;
+      gap: 40px;
+
+      a {
+        font-size: 16px;
+        font-weight: 500;
+        color: $color-white;
+        transition: color 0.3s;
+
+        &:hover,
+        &.active {
+          color: $color-primary; // 포인트 컬러로 변경
+        }
       }
     }
   }
-
   // 반응형 (모바일)
   @include mobile {
     height: 60px; // 높이 줄이기

@@ -77,7 +77,8 @@ const ProjectItem = ({ data }: { data: Project }) => {
                 {/* 이미지 모달 버튼 */}
                 <button
                   className="view-img-btn"
-                  onClick={() => setIsModalOpen(true)}>
+                  onClick={() => setIsModalOpen(true)}
+                >
                   크게 보기
                 </button>
               </div>
@@ -99,7 +100,8 @@ const ProjectItem = ({ data }: { data: Project }) => {
             <button
               key={idx}
               className={`thumb-btn ${currentIndex === idx ? "active" : ""}`}
-              onClick={() => setCurrentIndex(idx)}>
+              onClick={() => setCurrentIndex(idx)}
+            >
               <img src={img} alt={`thumb-${idx}`} onError={handleImgError} />
             </button>
           ))}
@@ -120,11 +122,13 @@ const ProjectItem = ({ data }: { data: Project }) => {
         createPortal(
           <div
             className="img-modal-backdrop"
-            onClick={() => setIsModalOpen(false)}>
+            onClick={() => setIsModalOpen(false)}
+          >
             {/* 내부 콘텐츠 클릭 시에는 팝업이 닫히지 않도록 stopPropagation */}
             <div
               className="img-modal-content"
-              onClick={(e) => e.stopPropagation()}>
+              onClick={(e) => e.stopPropagation()}
+            >
               <img
                 src={data.images[currentIndex]}
                 alt={`${data.title} 원본 이미지`}
@@ -134,7 +138,8 @@ const ProjectItem = ({ data }: { data: Project }) => {
             {/* 닫기 버튼 (우측 상단 고정) */}
             <button
               className="modal-close-btn"
-              onClick={() => setIsModalOpen(false)}>
+              onClick={() => setIsModalOpen(false)}
+            >
               ✕
             </button>
           </div>,
@@ -151,7 +156,7 @@ export default function ProjectList() {
     {
       id: 1,
       title: "건설사 원전 사업관리 시스템",
-      category: "2025.04 ~ 06 / HTML, CSS, JS",
+      category: "2025.04 ~ 06 / HTML, CSS, JS / ",
       desc: "• IBSheet·IBChart 기반 대용량 그리드·차트 UI 구현\n• GitHub 버전 관리 체계 전담 구축 및 퍼블리싱 환경 세팅",
       images: [
         "/images/pj01/nova-01.png",
@@ -187,7 +192,7 @@ export default function ProjectList() {
     {
       id: 4,
       title: "공기업 통합경영정보시스템(K-ERP)",
-      category: "2024.05 ~ 06 / jQuery",
+      category: "2024.05 ~ 06 / HTML, CSS, jQuery",
       desc: "• 적응형 모바일 페이지 퍼블리싱 전담 (100%)\n• 기존 시스템 분석 및 신규 기능 UI 적용",
       images: [
         "/images/pj04/kbiz-01.png",

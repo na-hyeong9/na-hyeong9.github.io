@@ -1,4 +1,5 @@
 @use "./_mixins.scss" as *;
+@use "./variables" as *;
 #root {
   width: 100%;
 }
@@ -7,10 +8,13 @@
   display: flex;
   flex-direction: column;
 
-  background-color: #050505;
+  background-color: $bg-dark;
   color: #fff;
   font-size: 16px;
-  font-family: "Wanted Sans", -apple-system, sans-serif;
+  font-family:
+    "Wanted Sans",
+    -apple-system,
+    sans-serif;
 }
 .secion-title {
   font-size: 50px;
@@ -40,7 +44,8 @@
   font-style: normal;
   font-display: swap;
   font-weight: 1000;
-  src: local("Wanted Sans ExtraBlack"),
+  src:
+    local("Wanted Sans ExtraBlack"),
     url("/fonts/wantedSans/WantedSans-ExtraBlack.woff2") format("woff2");
 }
 @font-face {
@@ -48,7 +53,8 @@
   font-style: normal;
   font-display: swap;
   font-weight: 900;
-  src: local("Wanted Sans Black"),
+  src:
+    local("Wanted Sans Black"),
     url("/fonts/wantedSans/WantedSans-Black.woff2") format("woff2");
 }
 @font-face {
@@ -56,7 +62,8 @@
   font-style: normal;
   font-display: swap;
   font-weight: 800;
-  src: local("Wanted Sans ExtraBold"),
+  src:
+    local("Wanted Sans ExtraBold"),
     url("/fonts/wantedSans/WantedSans-ExtraBold.woff2") format("woff2");
 }
 @font-face {
@@ -64,7 +71,8 @@
   font-style: normal;
   font-display: swap;
   font-weight: 700;
-  src: local("Wanted Sans Bold"),
+  src:
+    local("Wanted Sans Bold"),
     url("/fonts/wantedSans/WantedSans-Bold.woff2") format("woff2");
 }
 @font-face {
@@ -72,7 +80,8 @@
   font-style: normal;
   font-display: swap;
   font-weight: 600;
-  src: local("Wanted Sans SemiBold"),
+  src:
+    local("Wanted Sans SemiBold"),
     url("/fonts/wantedSans/WantedSans-SemiBold.woff2") format("woff2");
 }
 @font-face {
@@ -80,7 +89,8 @@
   font-style: normal;
   font-display: swap;
   font-weight: 500;
-  src: local("Wanted Sans Medium"),
+  src:
+    local("Wanted Sans Medium"),
     url("/fonts/wantedSans/WantedSans-Medium.woff2") format("woff2");
 }
 @font-face {
@@ -88,6 +98,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: local("Wanted Sans Regular"),
+  src:
+    local("Wanted Sans Regular"),
     url("/fonts/wantedSans/WantedSans-Regular.woff2") format("woff2");
 }
