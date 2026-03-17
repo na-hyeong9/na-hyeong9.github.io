@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { createPortal } from "react-dom"; // ★ 팝업을 겹침 없이 최상단에 띄우기 위해 추가
+import { createPortal } from "react-dom"; // 팝업을 겹침 없이 최상단에 띄우기 위해 추가
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,6 +10,7 @@ interface Project {
   id: number;
   title: string;
   category: string;
+  contribution: string;
   desc: string;
   images: string[];
   link?: string;
@@ -111,6 +112,10 @@ const ProjectItem = ({ data }: { data: Project }) => {
         <div className="text-box">
           <span className="category">{data.category}</span>
           <h3 className="title">{data.title}</h3>
+          <div className="contribution-badge">
+            <span className="label">기여도</span>
+            <span className="value">{data.contribution}</span>
+          </div>
           <p className="desc" style={{ whiteSpace: "pre-line" }}>
             {data.desc}
           </p>
@@ -156,7 +161,8 @@ export default function ProjectList() {
     {
       id: 1,
       title: "건설사 원전 사업관리 시스템",
-      category: "2025.04 ~ 06 / HTML, CSS, JS / ",
+      category: "2025.04 ~ 06 / HTML, CSS, JS ",
+      contribution: "100%",
       desc: "• IBSheet·IBChart 기반 대용량 그리드·차트 UI 구현\n• GitHub 버전 관리 체계 전담 구축 및 퍼블리싱 환경 세팅",
       images: [
         "/images/pj01/nova-01.png",
@@ -169,7 +175,8 @@ export default function ProjectList() {
       id: 2,
       title: "공공기관 클라우드 네이티브 시스템",
       category: "2025.03 ~ 04 / React",
-      desc: "• 공통 UI 컴포넌트 15종 설계 및 구현\n• 컴포넌트 재사용 구조 적용 (재사용률 약 70% 달성)",
+      contribution: "20%",
+      desc: "• 공통 UI 컴포넌트 15종 설계 및 구현\n• 컴포넌트 재사용 구조 적용 (재사용률 약 50% 달성)",
       images: [
         "/images/pj02/uj-01.png",
         "/images/pj02/uj-02.png",
@@ -181,6 +188,7 @@ export default function ProjectList() {
       id: 3,
       title: "건설사 고객센터 시스템",
       category: "2024.07 ~ 12 / Vue.js, SCSS",
+      contribution: "50%",
       desc: "• UI 컴포넌트 모듈화로 개발 기간 20% 단축\n• SCSS/SASS 기반 스타일 가이드 수립 및 대시보드 구현",
       images: [
         "/images/pj03/hicc-01.png",
@@ -193,7 +201,8 @@ export default function ProjectList() {
       id: 4,
       title: "공기업 통합경영정보시스템(K-ERP)",
       category: "2024.05 ~ 06 / HTML, CSS, jQuery",
-      desc: "• 적응형 모바일 페이지 퍼블리싱 전담 (100%)\n• 기존 시스템 분석 및 신규 기능 UI 적용",
+      contribution: "100%",
+      desc: "• 적응형 모바일 페이지 퍼블리싱 전담 (기여도 100%)\n• 기존 시스템 분석 및 신규 기능 UI 적용",
       images: [
         "/images/pj04/kbiz-01.png",
         "/images/pj04/kbiz-02.png",
@@ -206,6 +215,7 @@ export default function ProjectList() {
       id: 5,
       title: "유공자포상 시스템 이관",
       category: "2024.04 ~ 05 / HTML, CSS",
+      contribution: "100%",
       desc: "• 기존 화면 분석 및 고객사 수정 요구사항 반영\n• 시스템 이관에 따른 UI/UX 최적화 작업",
       images: [],
     },
@@ -213,14 +223,16 @@ export default function ProjectList() {
       id: 6,
       title: "금융권 웹 접근성 향상 프로젝트",
       category: "2023.10 ~ 24.02 / HTML, CSS",
+      contribution: "20%",
       desc: "• KWCAG 2.1 기준 마크업 개선 및 검수\n• 한국웹접근성인증마크(WA) 획득 달성",
-      images: [],
+      images: ["/images/pj06/sc-01.png"],
     },
     {
       id: 7,
       title: "공기업 대고객 시스템 개편",
       category: "2023.06 ~ 09 / HTML, CSS, jQuery",
-      desc: "• 총 117페이지 화면 퍼블리싱 및 유지보수\n• 적응형 모바일 페이지 구현 전담 (100%)",
+      contribution: "50%",
+      desc: "• 총 117페이지 화면 퍼블리싱 및 유지보수\n• 적응형 모바일 페이지 구현 전담 (기여도 100%)",
       images: [
         "/images/pj07/kbiz-01.png",
         "/images/pj07/kbiz-02.png",

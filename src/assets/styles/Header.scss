@@ -43,11 +43,13 @@
     // 활성화된 탭
     .slide-bar {
       position: absolute;
-      bottom: 0;
+      bottom: -10px;
       left: 0;
-      height: 3px;
+      height: 2px;
       background-color: #4ecdc4;
       transition: all 0.3s ease;
+      box-shadow: 0 0 12px #4ecdc4;
+      border-radius: 10px;
 
       // 처음 투명하게
       width: 0;
