@@ -5,6 +5,9 @@ $color-gray-100: #f5f5f5;
 $color-gray-500: #999;
 $color-primary: #3b82f6; // 포인트 컬러
 
+// 텍스트 컬러
+$text-white: #ffffff;
+
 // 2. 폰트 (Fonts)
 $font-main:
   "Wanted Sans Variable",
@@ -24,7 +27,7 @@ $header-height: 80px;
 // Default Background Color
 $bg-dark: #1a252f;
 
-// 메인 비쥬얼
+// 포인트 컬러
 $neon-mint: rgba(78, 205, 196, 0.7); // #4ecdc4
 $neon-blue: rgba(68, 168, 216, 0.5); // #44a8d8
 $neon-mint-light: rgba(78, 205, 196, 0.3);
