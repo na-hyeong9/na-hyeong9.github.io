@@ -1,0 +1,180 @@
+<svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="480" height="360">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D1117"/>
+      <stop offset="100%" style="stop-color:#1A1508"/>
+    </linearGradient>
+    <linearGradient id="amber1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F59E0B"/>
+      <stop offset="100%" style="stop-color:#FCD34D"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="amberGlow">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowAmber" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 z" fill="#F59E0B"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="480" height="360" fill="url(#bgGrad2)"/>
+  
+  <!-- Glow orb -->
+  <circle cx="240" cy="180" r="140" fill="#F59E0B" opacity="0.04" filter="url(#amberGlow)"/>
+
+  <!-- ===== BEFORE block (messy) ===== -->
+  <rect x="32" y="80" width="168" height="200" rx="10" fill="#1A1508" stroke="#3D2E0A" stroke-width="1.5"/>
+  
+  <!-- Before header -->
+  <rect x="32" y="80" width="168" height="30" rx="10" fill="#2A1F05"/>
+  <rect x="32" y="98" width="168" height="12" fill="#2A1F05"/>
+  <circle cx="50" cy="95" r="5" fill="#FF5F57" opacity="0.7"/>
+  <circle cx="65" cy="95" r="5" fill="#FFBD2E" opacity="0.7"/>
+  <text x="116" y="99" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#6B5A1E">before.js</text>
+  
+  <!-- Messy code lines (squiggly looking via varying widths) -->
+  <g font-family="'Courier New', monospace" font-size="9" opacity="0.7">
+    <!-- Line 1 - messy indent -->
+    <rect x="44" y="118" width="90" height="8" rx="2" fill="#3D2E0A"/>
+    <rect x="44" y="118" width="30" height="8" rx="2" fill="#F59E0B" opacity="0.3"/>
+    <text x="46" y="126" fill="#F59E0B" opacity="0.5">var x=1,y=2,z=3</text>
+
+    <!-- Line 2 -->
+    <rect x="44" y="133" width="130" height="8" rx="2" fill="#3D2E0A"/>
+    <text x="46" y="141" fill="#EF4444" opacity="0.5">  if(x){if(y){if(z){</text>
+
+    <!-- Line 3 deep nested -->
+    <rect x="44" y="148" width="110" height="8" rx="2" fill="#3D2E0A"/>
+    <text x="46" y="156" fill="#EF4444" opacity="0.5">      doSomething()</text>
+
+    <!-- Line 4 -->
+    <rect x="44" y="163" width="60" height="8" rx="2" fill="#3D2E0A"/>
+    <text x="46" y="171" fill="#EF4444" opacity="0.4">}}}}</text>
+
+    <!-- Line 5 - long messy -->
+    <rect x="44" y="178" width="148" height="8" rx="2" fill="#3D2E0A"/>
+    <text x="46" y="186" fill="#6B7280" opacity="0.5">function a(b,c,d,e,f,g){</text>
+
+    <!-- Line 6 -->
+    <rect x="44" y="193" width="100" height="8" rx="2" fill="#3D2E0A"/>
+    <text x="46" y="201" fill="#6B7280" opacity="0.4">  return b+c+d+e</text>
+
+    <!-- Line 7 -->
+    <rect x="44" y="208" width="80" height="8" rx="2" fill="#3D2E0A"/>
+    <text x="46" y="216" fill="#6B7280" opacity="0.4">  +f+g; }</text>
+
+    <!-- Line 8 commented mess -->
+    <rect x="44" y="223" width="130" height="8" rx="2" fill="#3D2E0A"/>
+    <text x="46" y="231" fill="#4B5563">// TODO: fix this later</text>
+
+    <!-- Line 9 -->
+    <rect x="44" y="238" width="100" height="8" rx="2" fill="#3D2E0A"/>
+    <text x="46" y="246" fill="#EF4444" opacity="0.4">  let tmp=a(1,2,3,4,5,6)</text>
+
+    <!-- Line 10 -->
+    <rect x="44" y="253" width="70" height="8" rx="2" fill="#3D2E0A"/>
+    <text x="46" y="261" fill="#6B7280" opacity="0.3">console.log(tmp)</text>
+  </g>
+  
+  <!-- BEFORE label -->
+  <rect x="52" y="272" width="50" height="18" rx="9" fill="#EF4444" opacity="0.15"/>
+  <text x="77" y="285" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#EF4444" opacity="0.8">BEFORE</text>
+  
+  <!-- ===== Arrow in middle ===== -->
+  <g filter="url(#glow2)">
+    <!-- Arrow body -->
+    <line x1="215" y1="180" x2="265" y2="180" stroke="#F59E0B" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+    <!-- Gear icon -->
+    <g transform="translate(240, 158)">
+      <circle cx="0" cy="0" r="8" fill="none" stroke="#F59E0B" stroke-width="2"/>
+      <circle cx="0" cy="0" r="3" fill="#F59E0B" opacity="0.8"/>
+      <!-- Gear teeth -->
+      <rect x="-1.5" y="-11" width="3" height="5" rx="1" fill="#F59E0B"/>
+      <rect x="-1.5" y="6" width="3" height="5" rx="1" fill="#F59E0B"/>
+      <rect x="6" y="-1.5" width="5" height="3" rx="1" fill="#F59E0B"/>
+      <rect x="-11" y="-1.5" width="5" height="3" rx="1" fill="#F59E0B"/>
+      <rect x="4" y="-9" width="3" height="5" rx="1" fill="#F59E0B" transform="rotate(45 5.5 -6.5)"/>
+      <rect x="-9" y="4" width="3" height="5" rx="1" fill="#F59E0B" transform="rotate(45 -7.5 6.5)"/>
+      <rect x="4" y="4" width="3" height="5" rx="1" fill="#F59E0B" transform="rotate(-45 5.5 6.5)"/>
+      <rect x="-9" y="-9" width="3" height="5" rx="1" fill="#F59E0B" transform="rotate(-45 -7.5 -6.5)"/>
+    </g>
+  </g>
+
+  <!-- ===== AFTER block (clean) ===== -->
+  <rect x="280" y="80" width="168" height="200" rx="10" fill="#0A1A0A" stroke="#1A3A1A" stroke-width="1.5"/>
+  
+  <!-- After header -->
+  <rect x="280" y="80" width="168" height="30" rx="10" fill="#0F2810"/>
+  <rect x="280" y="98" width="168" height="12" fill="#0F2810"/>
+  <circle cx="298" cy="95" r="5" fill="#FF5F57" opacity="0.7"/>
+  <circle cx="313" cy="95" r="5" fill="#FFBD2E" opacity="0.7"/>
+  <text x="364" y="99" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2A5A2A">after.js</text>
+  
+  <!-- Clean code lines -->
+  <g font-family="'Courier New', monospace" font-size="9">
+    <!-- Line 1 - clean const -->
+    <text x="294" y="126" fill="#60A5FA" opacity="0.8">const</text>
+    <text x="320" y="126" fill="#E5E7EB" opacity="0.7"> config = {</text>
+    
+    <!-- Line 2 -->
+    <text x="294" y="141" fill="#E5E7EB" opacity="0.5">  x: </text>
+    <text x="314" y="141" fill="#A3E635" opacity="0.8">1</text>
+    <text x="320" y="141" fill="#E5E7EB" opacity="0.5">, y: </text>
+    <text x="340" y="141" fill="#A3E635" opacity="0.8">2</text>
+    <text x="346" y="141" fill="#E5E7EB" opacity="0.5">,</text>
+    
+    <!-- Line 3 -->
+    <text x="294" y="156" fill="#E5E7EB" opacity="0.5">};</text>
+
+    <!-- Line 4 blank -->
+
+    <!-- Line 5 - clean function -->
+    <text x="294" y="178" fill="#60A5FA" opacity="0.8">const</text>
+    <text x="320" y="178" fill="#FCD34D" opacity="0.8"> calc</text>
+    <text x="340" y="178" fill="#E5E7EB" opacity="0.7"> = (</text>
+
+    <!-- Line 6 -->
+    <text x="294" y="193" fill="#E5E7EB" opacity="0.5">  ...args</text>
+
+    <!-- Line 7 -->
+    <text x="294" y="208" fill="#E5E7EB" opacity="0.5">) =&gt;</text>
+    <text x="314" y="208" fill="#E5E7EB" opacity="0.7"> args</text>
+
+    <!-- Line 8 -->
+    <text x="294" y="223" fill="#E5E7EB" opacity="0.5">  .reduce(</text>
+
+    <!-- Line 9 -->
+    <text x="294" y="238" fill="#E5E7EB" opacity="0.5">    (a, b) =&gt; a + b,</text>
+
+    <!-- Line 10 -->
+    <text x="294" y="253" fill="#A3E635" opacity="0.8">    0</text>
+    <text x="304" y="253" fill="#E5E7EB" opacity="0.5">);</text>
+  </g>
+  
+  <!-- AFTER label -->
+  <rect x="300" y="272" width="50" height="18" rx="9" fill="#34D399" opacity="0.15"/>
+  <text x="325" y="285" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#34D399" opacity="0.9">AFTER</text>
+  
+  <!-- Floating accent -->
+  <g opacity="0.4" filter="url(#glow2)">
+    <text x="380" y="40" font-family="'Courier New', monospace" font-size="24" fill="#F59E0B">⟳</text>
+  </g>
+  
+  <!-- Small sparkles -->
+  <g fill="#F59E0B" opacity="0.5">
+    <circle cx="320" cy="60" r="2"/>
+    <circle cx="340" cy="48" r="1.5"/>
+    <circle cx="310" cy="45" r="1"/>
+  </g>
+</svg>
