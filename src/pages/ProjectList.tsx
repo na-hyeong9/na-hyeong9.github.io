@@ -245,9 +245,9 @@ export default function ProjectList() {
     {
       id: 8,
       title: "공기업 마켓 정식플랫폼 구축 사업",
-      category: "2025.07.01 ~ 2025.11.20",
-      contribution: "100%",
-      desc: "• IBSheet·IBChart 기반 대용량 그리드·차트 UI 구현\n• GitHub 버전 관리 체계 전담 구축 및 퍼블리싱 환경 세팅",
+      category: "2025.07.01 ~ 2025.11.20 / HTML, CSS, JQuery",
+      contribution: "80%",
+      desc: "• GitHub 버전 관리 체계 전담 구축 및 퍼블리싱 환경 초기 세팅\n• 공통 UI 컴포넌트 설계·모듈화로 화면 전반의 재사용성 확보 및 작업 효율 향상\n• 반응형·적응형 대응으로 PC·모바일 멀티 디바이스 환경 완성\n• 총 106본 이상 화면 퍼블리싱 기여도 80%로 완료",
       images: [
         "/images/projects/techmk/tech-01.png",
         "/images/projects/techmk/tech-02.png",
