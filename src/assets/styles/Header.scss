@@ -1,30 +1,24 @@
-// 1. 공통 변수와 믹스인 가져오기 (경로 중요! 점 3번)
 @use "./_variables.scss" as *;
 @use "./_mixins.scss" as *;
 
 .header-wrap {
-  position: fixed; // 상단 고정
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: $header-height;
-  background-color: transparent;
+  background-color: var(--header-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  .logo {
-    height: 1;
-  }
+  border-bottom: 1px solid var(--border-subtle);
 
   .inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     width: 100%;
     height: 100%;
-    max-width: 1280px; // 중앙 컨텐츠 폭
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
   }
@@ -32,26 +26,22 @@
   .logo a {
     font-size: 24px;
     font-weight: 700;
-    color: $color-white; // 변수 사용
+    color: var(--text-primary);
     letter-spacing: -0.5px;
   }
 
-  // GNB 스타일
   .gnb {
     position: relative;
 
-    // 활성화된 탭
     .slide-bar {
       position: absolute;
       bottom: -10px;
       left: 0;
       height: 2px;
-      background-color: #4ecdc4;
+      background-color: $accent-1;
       transition: all 0.3s ease;
-      box-shadow: 0 0 12px #4ecdc4;
+      box-shadow: 0 0 12px $accent-1;
       border-radius: 10px;
-
-      // 처음 투명하게
       width: 0;
       opacity: 0;
     }
@@ -63,20 +53,19 @@
       a {
         font-size: 16px;
         font-weight: 500;
-        color: $color-white;
+        color: var(--text-primary);
         transition: color 0.3s;
 
         &:hover,
         &.active {
-          color: $color-primary; // 포인트 컬러로 변경
+          color: $accent-1;
         }
       }
     }
   }
-  // 반응형 (모바일)
-  @include mobile {
-    height: 60px; // 높이 줄이기
 
+  @include mobile {
+    height: 60px;
     .inner {
       padding: 0 16px;
     }
@@ -86,15 +75,11 @@
     position: absolute;
     width: 80%;
     height: 100vh;
-
     top: 0;
     right: -100%;
     transition: all 0.5s ease;
-
-    background-color: #fff;
-
+    background-color: var(--bg-sidebar);
     padding: 20px;
-
     z-index: 2000;
 
     &.open {
@@ -110,6 +95,6 @@
     right: 0;
     height: 100vh;
     z-index: 1500;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--overlay-bg);
   }
 }

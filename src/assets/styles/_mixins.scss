@@ -44,13 +44,8 @@
 }
 
 // 모바일/태블릿 미디어쿼리 단축키
-@mixin tablet {
-  @media (max-width: $tablet) {
-    @content;
-  }
-}
 @mixin mobile {
-  @media (max-width: $mobile) {
+  @media (max-width: $breakpoint-mo) {
     @content;
   }
 }

@@ -1,110 +1,93 @@
-@use "./mixins" as *;
 @use "./variables" as *;
 
 .about-wrap {
-  width: 100%;
-  min-height: 100vh;
-  padding: $header-height 0;
-  color: #fff;
-  z-index: 10;
-
-  // 내용 중앙 정렬
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 120px 0;
+  background-color: var(--bg-primary);
 
   .inner {
-    width: 100%;
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-
-    // 좌우 배치
-    @include flex(center, flex-start);
-    gap: 60px; // 좌우 간격
   }
 
-  // --- 왼쪽 영역 ---
-  .left-col {
-    width: 40%;
+  .about-section-head {
+    margin-bottom: 60px;
 
     .section-title {
       font-size: 60px;
       font-weight: 800;
       line-height: 1.2;
       margin-bottom: 30px;
-      background: linear-gradient(to right, #4ecdc4, #44a8d8);
+      background: linear-gradient(to right, $accent-1, $accent-2);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .sub-desc {
-      @include flex(center, flex-start, column);
       font-size: 20px;
-      color: #ccc;
+      color: var(--text-muted);
       line-height: 1.6;
     }
   }
 
-  // --- 오른쪽 영역 ---
-  .right-col {
-    width: 50%;
-    padding-top: 20px;
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
 
-    .bio-text {
-      font-size: 18px;
-      line-height: 1.8;
-      color: #bbb;
-      margin-bottom: 50px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 30px;
-    }
-
-    // 스킬바 스타일
-    .skill-item {
-      margin-bottom: 25px;
-
-      .info {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-size: 16px;
-        font-weight: 600;
-      }
-
-      .bar-bg {
-        width: 100%;
-        height: 10px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 5px;
-        overflow: hidden;
-
-        .progress-bar {
-          width: 0%;
-          height: 100%;
-          background-color: #44a8d8;
-          border-radius: 5px;
-        }
-      }
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
     }
   }
 
-  // --- 반응형 (모바일) ---
-  @include mobile {
-    padding: 80px 0;
+  .about-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bg-card);
+    box-shadow: 0 4px 20px var(--shadow-sm);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    cursor: pointer;
 
-    .inner {
-      flex-direction: column; // 위아래로 쌓이게
-      gap: 40px;
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 36px var(--shadow-md);
+
+      .about-img-box img {
+        transform: scale(1.05);
+      }
     }
 
-    .left-col,
-    .right-col {
-      width: 100%; // 꽉 차게
+    .about-img-box {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--bg-placeholder);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
     }
 
-    .left-col .section-title {
-      font-size: 40px; // 폰트 줄이기
+    .about-text-box {
+      padding: 12px;
+
+      .about-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-primary);
+      }
+
+      .about-desc {
+        font-size: 13px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
     }
   }
 }

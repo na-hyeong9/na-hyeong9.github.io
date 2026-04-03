@@ -1,7 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-// import App from "./App.js"; -> 확장자 .js 제거 (Vite가 자동으로 .tsx를 찾습니다)
 import App from "./App";
+
+import { ThemeProvider } from "./context/ThemeContext";
 
 import "./index.css";
 import "./assets/styles/main.scss";
@@ -19,6 +20,8 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </StrictMode>,
 );

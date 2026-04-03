@@ -7,8 +7,8 @@
 }
 
 body {
-  font-family: $font-main;
-  color: $color-black;
+  font-family: "Wanted Sans Variable";
+  color: var(--text-primary);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -34,6 +34,7 @@ a {
 button {
   background: none;
   border: none;
+  outline: none;
   cursor: pointer;
   font-family: inherit;
 }

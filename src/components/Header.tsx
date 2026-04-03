@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 
+import { useTheme } from "../context/ThemeContext";
+import ThemeToggle from "./ThemeToggle";
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -93,8 +96,8 @@ export default function Header() {
 
           <ul ref={ulRef}>
             <li>
-              <a href="#about" onClick={(e) => handleScrollTo(e, "#about")}>
-                About Me
+              <a href="#skills" onClick={(e) => handleScrollTo(e, "#skills")}>
+                Skills
               </a>
             </li>
             <li>
@@ -113,6 +116,8 @@ export default function Header() {
           </ul>
         </nav>
 
+        <ThemeToggle />
+
         {/* 모바일 메뉴 버튼 */}
         <button className="btn-menu mo-only" onClick={() => setIsOpen(true)}>
           <span>메뉴</span>
@@ -128,8 +133,8 @@ export default function Header() {
 
         <ul>
           <li>
-            <a href="#about" onClick={(e) => handleScrollTo(e, "#about")}>
-              About Me
+            <a href="#skiils" onClick={(e) => handleScrollTo(e, "#skiils")}>
+              skiils
             </a>
           </li>
           <li>

@@ -1,30 +1,87 @@
-// 1. 색상 (Colors)
-$color-black: #2b2b2b;
+// ==========================================
+// $ 고정 변수 (테마 무관)
+// ==========================================
+$accent-1: #4ecdc4;
+$accent-2: #44a8d8;
+$accent-dark: #2c3e50;
+
 $color-white: #fff;
-$color-gray-100: #f5f5f5;
-$color-gray-500: #999;
-$color-primary: #3b82f6; // 포인트 컬러
+$color-primary: #4ecdc4;
 
-// 2. 폰트 (Fonts)
-$font-main:
-  "Wanted Sans Variable",
-  -apple-system,
-  BlinkMacSystemFont,
-  system-ui,
-  sans-serif;
-
-// 3. 반응형 브레이크포인트 (Breakpoints)
-$mobile: 480px;
-$tablet: 768px;
-$desktop: 1024px;
-
-// header 높이
-$header-height: 80px;
-
-// Default Background Color
-$bg-dark: #1a252f;
-
-// 메인 비쥬얼
-$neon-mint: rgba(78, 205, 196, 0.7); // #4ecdc4
-$neon-blue: rgba(68, 168, 216, 0.5); // #44a8d8
+// wave 색상 ($ 고정 - 테마 무관)
+$neon-mint: #4ecdc4;
 $neon-mint-light: rgba(78, 205, 196, 0.3);
+$neon-blue: #44a8d8;
+
+$header-height: 70px;
+$breakpoint-mo: 768px;
+
+
+// ==========================================
+// CSS 변수 (테마별)
+// ==========================================
+:root[data-theme="dark"] {
+  // 배경
+  --bg-primary: #111111;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #2c3e50;
+  --bg-placeholder: #1e1e1e;
+  --bg-sidebar: #1a1a1a;
+
+  // 텍스트
+  --text-primary: #ffffff;
+  --text-muted: #cccccc;
+  --text-secondary: #888888;
+  --text-label: #aaaaaa;
+  --text-footer: #555555;
+
+  // 테두리
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.3);
+
+  // 그림자
+  --shadow-sm: rgba(0, 0, 0, 0.08);
+  --shadow-md: rgba(0, 0, 0, 0.15);
+  --shadow-lg: rgba(0, 0, 0, 0.4);
+
+  // 기타
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --modal-backdrop: rgba(0, 0, 0, 0.85);
+  --scrollbar-thumb: #555555;
+  --thumb-active-border: #ffffff;
+  --header-bg: rgba(17, 17, 17, 0.8);
+}
+
+:root[data-theme="light"] {
+  // 배경
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #ebebeb;
+  --bg-card: #ffffff;
+  --bg-placeholder: #e8e8e8;
+  --bg-sidebar: #ffffff;
+
+  // 텍스트
+  --text-primary: #111111;
+  --text-muted: #444444;
+  --text-secondary: #666666;
+  --text-label: #888888;
+  --text-footer: #999999;
+
+  // 테두리
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.12);
+  --border-strong: rgba(0, 0, 0, 0.25);
+
+  // 그림자
+  --shadow-sm: rgba(0, 0, 0, 0.06);
+  --shadow-md: rgba(0, 0, 0, 0.12);
+  --shadow-lg: rgba(0, 0, 0, 0.1);
+
+  // 기타
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+  --modal-backdrop: rgba(0, 0, 0, 0.75);
+  --scrollbar-thumb: #cccccc;
+  --thumb-active-border: #333333;
+  --header-bg: rgba(245, 245, 245, 0.85);
+}
