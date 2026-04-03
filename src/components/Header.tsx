@@ -96,6 +96,11 @@ export default function Header() {
 
           <ul ref={ulRef}>
             <li>
+              <a href="#about" onClick={(e) => handleScrollTo(e, "#about")}>
+                About
+              </a>
+            </li>
+            <li>
               <a href="#skills" onClick={(e) => handleScrollTo(e, "#skills")}>
                 Skills
               </a>

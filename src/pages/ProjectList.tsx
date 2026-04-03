@@ -28,7 +28,7 @@ const ProjectItem = ({ data }: { data: Project }) => {
 
   // 이미지 에러 핸들러
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = "/images/error.jpg";
+    e.currentTarget.src = "/images/no-image.png";
   };
 
   // 모달이 열렸을 때 배경 스크롤 방지
