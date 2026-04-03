@@ -163,7 +163,7 @@ export default function ProjectList() {
       title: "공기업 대고객 시스템 개편",
       category: "2023.06 ~ 09 / HTML, CSS, jQuery",
       contribution: "50%",
-      desc: "• 총 117페이지 화면 퍼블리싱 및 유지보수\n• 적응형 모바일 페이지 구현 전담 (기여도 100%)",
+      desc: "• 총 117본 화면 퍼블리싱 및 유지보수\n• 적응형 모바일 페이지 구현 전담 (기여도 100%)",
       images: [
         "/images/projects/kbiz/kbiz-01.png",
         "/images/projects/kbiz/kbiz-02.png",
@@ -247,7 +247,7 @@ export default function ProjectList() {
       title: "공기업 마켓 정식플랫폼 구축 사업",
       category: "2025.07.01 ~ 2025.11.20 / HTML, CSS, JQuery",
       contribution: "80%",
-      desc: "• GitHub 버전 관리 체계 전담 구축 및 퍼블리싱 환경 초기 세팅\n• 공통 UI 컴포넌트 설계·모듈화로 화면 전반의 재사용성 확보 및 작업 효율 향상\n• 반응형·적응형 대응으로 PC·모바일 멀티 디바이스 환경 완성\n• 총 106본 이상 화면 퍼블리싱 기여도 80%로 완료",
+      desc: "• GitHub 버전 관리 체계 전담 구축 및 퍼블리싱 환경 초기 세팅\n• 공통 UI 컴포넌트 설계·모듈화로 화면 전반의 재사용성 확보 및 작업 효율 향상\n• 반응형 대응으로 PC·모바일 멀티 디바이스 환경 구축\n• 총 106본 화면 퍼블리싱",
       images: [
         "/images/projects/techmk/tech-01.png",
         "/images/projects/techmk/tech-02.png",
