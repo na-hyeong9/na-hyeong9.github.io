@@ -18,21 +18,21 @@ export default function About() {
   const abouts: About[] = [
     {
       id: 1,
-      image: "/images/about/markup.png",
+      image: "/images/about/markup.svg",
       title: "UI Markup",
       desc: "HTML5 시맨틱 마크업과 CSS3 기반의 크로스브라우징 퍼블리싱에 능숙합니다. 웹 접근성(KWCAG 2.1) 기준을 준수하며 유지보수 가능한 구조로 작업합니다.",
     },
     {
       id: 2,
-      image: "/images/about/component.png",
-      title: "Component Development",
-      desc: "React·Vue.js 기반 재사용 가능한 UI 컴포넌트를 설계하고 구현합니다. SCSS 모듈화와 스타일 가이드 수립으로 협업 효율을 높입니다.",
+      image: "/images/about/refactoring.svg",
+      title: "Refactoring & Maintenance",
+      desc: "기존 코드의 구조를 분석하고 가독성과 재사용성을 높이는 방향으로 개선합니다. SCSS 모듈화와 컴포넌트 분리를 통해 유지보수하기 쉬운 코드베이스를 만들어갑니다.",
     },
     {
       id: 3,
-      image: "/images/about/interaction.png",
-      title: "Interaction & Animation",
-      desc: "GSAP·ScrollTrigger를 활용한 스크롤 인터랙션과 마이크로 애니메이션을 구현합니다. 사용자 경험을 고려한 자연스러운 동작을 추구합니다.",
+      image: "/images/about/teamwork.svg",
+      title: "Teamwork & Collaboration",
+      desc: "Github 와 Notion을 이용한 팀 프로젝트 진행한 경험이 있습니다. 기획, 디자인, 개발과의 협업을 경험한 기반으로 다른 직군과 원활한 커뮤니케이션이 가능합니다.",
     },
   ];
 
@@ -58,7 +58,7 @@ export default function About() {
           },
           y: 50,
           opacity: 0,
-          duration: 0.7,
+          duration: 0.8,
           delay: i * 0.1,
           ease: "power3.out",
         });

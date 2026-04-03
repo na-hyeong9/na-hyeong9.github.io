@@ -1,0 +1,130 @@
+<svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="480" height="360">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A1118"/>
+      <stop offset="100%" style="stop-color:#071218"/>
+    </linearGradient>
+    <linearGradient id="teal1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2DD4BF"/>
+      <stop offset="100%" style="stop-color:#38BDF8"/>
+    </linearGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="nodeglow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="480" height="360" fill="url(#bgGrad3)"/>
+
+  <!-- Soft glow center -->
+  <circle cx="240" cy="185" r="120" fill="#2DD4BF" opacity="0.03" filter="url(#nodeglow)"/>
+  
+  <!-- ===== Connection lines (drawn first, behind nodes) ===== -->
+  <!-- Center to top-left -->
+  <line x1="240" y1="185" x2="120" y2="115" stroke="#2DD4BF" stroke-width="1.5" opacity="0.25" stroke-dasharray="4 3"/>
+  <!-- Center to top-right -->
+  <line x1="240" y1="185" x2="365" y2="110" stroke="#2DD4BF" stroke-width="1.5" opacity="0.25" stroke-dasharray="4 3"/>
+  <!-- Center to bottom-left -->
+  <line x1="240" y1="185" x2="105" y2="268" stroke="#2DD4BF" stroke-width="1.5" opacity="0.25" stroke-dasharray="4 3"/>
+  <!-- Center to bottom-right -->
+  <line x1="240" y1="185" x2="375" y2="268" stroke="#2DD4BF" stroke-width="1.5" opacity="0.25" stroke-dasharray="4 3"/>
+  <!-- Cross connections -->
+  <line x1="120" y1="115" x2="365" y2="110" stroke="#38BDF8" stroke-width="1" opacity="0.12"/>
+  <line x1="105" y1="268" x2="375" y2="268" stroke="#38BDF8" stroke-width="1" opacity="0.12"/>
+  <line x1="120" y1="115" x2="105" y2="268" stroke="#38BDF8" stroke-width="1" opacity="0.10"/>
+  <line x1="365" y1="110" x2="375" y2="268" stroke="#38BDF8" stroke-width="1" opacity="0.10"/>
+
+  <!-- ===== Animated pulse on lines ===== -->
+  <circle r="4" fill="#2DD4BF" opacity="0.7">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M240,185 L120,115"/>
+  </circle>
+  <circle r="3" fill="#38BDF8" opacity="0.6">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M240,185 L365,110"/>
+  </circle>
+  <circle r="3" fill="#2DD4BF" opacity="0.6">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M240,185 L105,268"/>
+  </circle>
+  <circle r="4" fill="#38BDF8" opacity="0.7">
+    <animateMotion dur="2.8s" repeatCount="indefinite" path="M240,185 L375,268"/>
+  </circle>
+
+  <!-- ===== Center node (main) ===== -->
+  <circle cx="240" cy="185" r="38" fill="#0D2020" stroke="#2DD4BF" stroke-width="2" filter="url(#nodeglow)" opacity="0.9"/>
+  <circle cx="240" cy="185" r="38" fill="none" stroke="#2DD4BF" stroke-width="1" opacity="0.4"/>
+  <!-- Person icon center -->
+  <circle cx="240" cy="173" r="10" fill="#2DD4BF" opacity="0.9"/>
+  <path d="M218,200 Q218,184 240,184 Q262,184 262,200" fill="#2DD4BF" opacity="0.7"/>
+  
+  <!-- ===== Node: Top-Left ===== -->
+  <circle cx="120" cy="115" r="30" fill="#0D1A22" stroke="#38BDF8" stroke-width="1.5" opacity="0.85"/>
+  <!-- Person icon small -->
+  <circle cx="120" cy="105" r="8" fill="#38BDF8" opacity="0.8"/>
+  <path d="M102,128 Q102,116 120,116 Q138,116 138,128" fill="#38BDF8" opacity="0.5"/>
+  <!-- Chat bubble -->
+  <rect x="132" y="88" width="34" height="20" rx="4" fill="#1A3040" stroke="#38BDF8" stroke-width="1" opacity="0.8"/>
+  <rect x="136" y="93" width="20" height="3" rx="1" fill="#38BDF8" opacity="0.6"/>
+  <rect x="136" y="99" width="14" height="3" rx="1" fill="#38BDF8" opacity="0.4"/>
+  <path d="M136,108 L132,112 L140,108" fill="#1A3040" stroke="#38BDF8" stroke-width="1"/>
+
+  <!-- ===== Node: Top-Right ===== -->
+  <circle cx="365" cy="110" r="30" fill="#0D1A22" stroke="#2DD4BF" stroke-width="1.5" opacity="0.85"/>
+  <!-- Person icon small -->
+  <circle cx="365" cy="100" r="8" fill="#2DD4BF" opacity="0.8"/>
+  <path d="M347,123 Q347,111 365,111 Q383,111 383,123" fill="#2DD4BF" opacity="0.5"/>
+  <!-- Code snippet bubble -->
+  <rect x="375" y="82" width="42" height="24" rx="4" fill="#1A3040" stroke="#2DD4BF" stroke-width="1" opacity="0.8"/>
+  <text x="380" y="94" font-family="'Courier New', monospace" font-size="8" fill="#2DD4BF" opacity="0.8">PR #12</text>
+  <text x="380" y="103" font-family="'Courier New', monospace" font-size="7" fill="#A3E635" opacity="0.7">merged</text>
+  <path d="M379,106 L375,110 L383,106" fill="#1A3040" stroke="#2DD4BF" stroke-width="1"/>
+
+  <!-- ===== Node: Bottom-Left ===== -->
+  <circle cx="105" cy="268" r="30" fill="#0D1A22" stroke="#38BDF8" stroke-width="1.5" opacity="0.85"/>
+  <circle cx="105" cy="258" r="8" fill="#38BDF8" opacity="0.8"/>
+  <path d="M87,281 Q87,269 105,269 Q123,269 123,281" fill="#38BDF8" opacity="0.5"/>
+  <!-- Task badge -->
+  <rect x="58" y="252" width="36" height="30" rx="4" fill="#1A3040" stroke="#38BDF8" stroke-width="1" opacity="0.8"/>
+  <rect x="63" y="258" width="8" height="8" rx="2" fill="none" stroke="#38BDF8" stroke-width="1.2" opacity="0.7"/>
+  <line x1="73" y1="262" x2="90" y2="262" stroke="#38BDF8" stroke-width="1.5" opacity="0.5"/>
+  <rect x="63" y="270" width="8" height="8" rx="2" fill="#2DD4BF" opacity="0.7"/>
+  <line x1="68" y1="274" x2="66" y2="276" stroke="white" stroke-width="1.2"/>
+  <line x1="66" y1="276" x2="70" y2="272" stroke="white" stroke-width="1.2"/>
+  <line x1="73" y1="274" x2="90" y2="274" stroke="#38BDF8" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- ===== Node: Bottom-Right ===== -->
+  <circle cx="375" cy="268" r="30" fill="#0D1A22" stroke="#2DD4BF" stroke-width="1.5" opacity="0.85"/>
+  <circle cx="375" cy="258" r="8" fill="#2DD4BF" opacity="0.8"/>
+  <path d="M357,281 Q357,269 375,269 Q393,269 393,281" fill="#2DD4BF" opacity="0.5"/>
+  <!-- Git branch bubble -->
+  <rect x="390" y="250" width="44" height="30" rx="4" fill="#1A3040" stroke="#2DD4BF" stroke-width="1" opacity="0.8"/>
+  <circle cx="399" cy="260" r="3" fill="#2DD4BF" opacity="0.8"/>
+  <circle cx="399" cy="272" r="3" fill="#2DD4BF" opacity="0.8"/>
+  <circle cx="412" cy="255" r="3" fill="#A3E635" opacity="0.8"/>
+  <line x1="399" y1="260" x2="399" y2="272" stroke="#2DD4BF" stroke-width="1.2" opacity="0.6"/>
+  <path d="M399,260 Q412,260 412,255" fill="none" stroke="#2DD4BF" stroke-width="1.2" opacity="0.6"/>
+  <text x="417" y="259" font-family="'Courier New', monospace" font-size="7" fill="#A3E635" opacity="0.8">feat</text>
+  <text x="417" y="269" font-family="'Courier New', monospace" font-size="7" fill="#2DD4BF" opacity="0.6">main</text>
+
+  <!-- ===== Floating accent label ===== -->
+  <g opacity="0.35" filter="url(#glow3)">
+    <text x="24" y="42" font-family="'Courier New', monospace" font-size="11" fill="#2DD4BF">// collaborate</text>
+  </g>
+  
+  <!-- Stars/sparkles -->
+  <g fill="#2DD4BF">
+    <circle cx="200" cy="50" r="2" opacity="0.4"/>
+    <circle cx="300" cy="330" r="1.5" opacity="0.3"/>
+    <circle cx="450" cy="180" r="2" opacity="0.3"/>
+    <circle cx="30" cy="180" r="1.5" opacity="0.3"/>
+  </g>
+</svg>
